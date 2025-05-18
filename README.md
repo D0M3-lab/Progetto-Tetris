@@ -1,25 +1,25 @@
-🎮 Progetto Tetris
+# 🎮 Progetto Tetris
 A classic Tetris game implemented in Python using Tkinter for the graphical interface. This version replicates the original mechanics of Tetris, including real-time updates, keyboard controls, score tracking, and automatic falling pieces.
 
-✨ Key Features
+## ✨ Key Features
 🧱 Grid Setup & Display
 Dimensions: Standard 10×20 grid, with each cell sized 30×30 pixels.
 
-Rendering:
+## Rendering:
 
-Grid drawn on a Tkinter Canvas.
+**Grid drawn on a Tkinter Canvas.**
 
-Blue blocks represent filled cells.
+**Blue blocks represent filled cells.**
 
-Black outlines highlight cell boundaries.
+**Black outlines highlight cell boundaries.**
 
-Tetrominoes:
+## Tetrominoes:
 
 Includes all 7 standard shapes: I, O, T, L, J, S, Z.
 
 Shapes are stored as 2D arrays and spawn at the top-center of the grid.
 
-🎮 Player Controls
+## 🎮 Player Controls
 Control the tetromino using your keyboard:
 
 Key	Action
