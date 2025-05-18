@@ -1,62 +1,74 @@
-# Progetto-Tetris
-Tetris Game in Python with Tkinter
-This program is a Python-based implementation of the classic Tetris game using the Tkinter library for the graphical interface. The game faithfully replicates the core mechanics of Tetris, featuring real-time updates, player controls, and scoring.
+🎮 Progetto Tetris
+A classic Tetris game implemented in Python using Tkinter for the graphical interface. This version replicates the original mechanics of Tetris, including real-time updates, keyboard controls, score tracking, and automatic falling pieces.
 
-Key Features & Functionality
-1. Grid Setup & Display
-Grid Dimensions:
-The game grid is 10 columns by 20 rows (standard Tetris grid), rendered on a Tkinter canvas. Each cell is 30x30 pixels in size.
+✨ Key Features
+🧱 Grid Setup & Display
+Dimensions: Standard 10×20 grid, with each cell sized 30×30 pixels.
 
-Grid Rendering:
-The grid is drawn on the canvas, with blue blocks representing filled cells and black outlines to define the boundaries.
+Rendering:
 
-Tetromino Shapes:
-The game uses seven distinct tetromino shapes (I, O, T, L, J, S, Z), stored as 2D arrays, randomly selected to fall in the game. Each block is initially placed at the top-center of the grid.
+Grid drawn on a Tkinter Canvas.
 
-2. Player Controls
-The player can interact with the game using the following keyboard inputs:
+Blue blocks represent filled cells.
 
-Left Arrow: Move the tetromino left by one cell.
+Black outlines highlight cell boundaries.
 
-Right Arrow: Move the tetromino right by one cell.
+Tetrominoes:
 
-Down Arrow: Accelerate the tetromino’s descent.
+Includes all 7 standard shapes: I, O, T, L, J, S, Z.
 
-Up Arrow: Rotate the tetromino by 90 degrees clockwise.
+Shapes are stored as 2D arrays and spawn at the top-center of the grid.
 
-These actions are validated to ensure:
+🎮 Player Controls
+Control the tetromino using your keyboard:
 
-The tetromino does not move outside the grid boundaries.
+Key	Action
+⬅️ Left Arrow	Move tetromino one cell left
+➡️ Right Arrow	Move tetromino one cell right
+⬇️ Down Arrow	Accelerate descent
+⬆️ Up Arrow	Rotate 90° clockwise
 
-The tetromino doesn’t overlap with existing blocks in the grid.
+All movements are validated to prevent:
 
-3. Collision Detection
-The function collision(dx, dy, shape) checks whether the tetromino, after a move, would collide with existing blocks or go out of bounds.
+Exiting the grid boundaries.
 
-When a tetromino reaches the bottom of the grid or collides with another block, it locks in place, and the next tetromino starts falling.
+Overlapping with existing blocks.
 
-4. Locking Tetrominoes & Clearing Lines
-When a tetromino locks into place, its blocks are added to the grid.
+🧩 Collision Detection
+The function collision(dx, dy, shape) checks if a tetromino would collide with the edge of the grid or with other blocks after a move.
 
-The program checks for full lines (rows that are completely filled with blocks). Any full lines are cleared, and the blocks above them shift down.
+When a collision is detected at the bottom or with another block, the tetromino locks in place and a new one spawns.
 
-Score Update: Players earn points for each block that locks in place and for every line that is cleared.
+🔒 Locking Tetrominoes & Clearing Lines
+Once locked, the tetromino’s blocks are added to the grid.
 
-5. Scoring System
-Score per Block:
-Players earn 10 points for each block that is locked in place when the tetromino lands.
+The program checks for full lines:
 
-Score per Line:
-Clearing a full line rewards 100 points per line.
+If a row is completely filled, it is cleared.
 
-The current score is displayed at the top of the game window, and it updates dynamically as the game progresses.
+Blocks above the cleared line fall down.
 
-6. Game Over Condition
-The game ends when a new tetromino cannot be placed because the grid is filled. This is detected by checking for collisions as soon as a new tetromino is spawned.
+Scoring:
 
-Game Over is triggered if the top row is blocked.
++10 points per locked block.
 
-7. Automatic Falling
-The tetromino falls automatically, updating every 150 milliseconds.
-This is controlled by the schedule_update() method, which calls the move_down() function to make the tetromino drop. If it cannot move further, it locks into place.
++100 points per cleared line.
 
+🧮 Scoring System
+Score per Block: +10 points when a tetromino lands.
+
+Score per Line: +100 points per completed line.
+
+The current score is displayed and updates in real-time.
+
+❌ Game Over
+Triggered when a new tetromino cannot be placed due to blocked cells at the top of the grid.
+
+This is checked immediately after a new tetromino spawns.
+
+⏱️ Automatic Falling
+Tetrominoes fall automatically every 150 milliseconds.
+
+Controlled by the schedule_update() method, which calls move_down():
+
+If the tetromino can't move down, it locks in place and the next shape begins.
